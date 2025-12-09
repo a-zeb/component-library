@@ -15,3 +15,5 @@ export interface UserProfileCardProps {
 }
 
 // Create a UserProfileCard component that displays user information with optional sections.
+export default function UserProfileCard() {
+}
