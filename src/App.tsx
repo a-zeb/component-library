@@ -1,7 +1,7 @@
-import './App.css'
-import AlertBox from './components/AlertBox/AlertBox'
+import "./App.css";
+import AlertBox from "./components/AlertBox/AlertBox";
 // import UserProfileCard from './components/UserProfileCard/UserProfileCard';
-// import ProductDisplay from './components/ProductDisplay'
+import ProductDisplay from "./components/ProductDisplay/ProductDisplay";
 
 function App() {
   // const user = {
@@ -12,48 +12,45 @@ function App() {
   //   avatarUrl: 'https://example.com/avatar.jpg'
   // };
 
-  // const product = {
-  //   id: '1',
-  //   name: 'Wireless Headphones',
-  //   price: 199.99,
-  //   description: 'High-quality wireless headphones with noise cancellation.',
-  //   imageUrl: 'https://example.com/headphones.jpg',
-  //   inStock: true
-  // };
+  const product = {
+    id: "1",
+    name: "Wireless Headphones",
+    price: 199.99,
+    description: "High-quality wireless headphones with noise cancellation.",
+    imageUrl: "https://example.com/headphones.jpg",
+    inStock: true,
+  };
 
   return (
+    // Test different prop combinations.
+
+    // Create example usage of components working together.
+    // Demonstrate prop passing between components.
+    // Show how to handle component nesting.
     <>
       <AlertBox
         type="success"
         message="Your profile has been updated successfully!"
-        onClose={() => alert('Alert closed')}
-      >
-        <p className="text-sm">You can now continue using the application.</p>
-      </AlertBox>
+        onClose={() => alert("Alert closed")}
+      ></AlertBox>
 
       <AlertBox
         type="error"
         message="Your profile failed to update."
-        onClose={() => alert('Alert closed')}
-      >
-        <p className="text-sm">You can now continue using the application.</p>
-      </AlertBox>
+        onClose={() => alert("Alert closed")}
+      ></AlertBox>
 
       <AlertBox
         type="warning"
         message="You have two factor disabled."
-        onClose={() => alert('Alert closed')}
-      >
-        <p className="text-sm">You can now continue using the application.</p>
-      </AlertBox>
+        onClose={() => alert("Alert closed")}
+      ></AlertBox>
 
       <AlertBox
         type="info"
         message="We can give you a lot of cool info."
-        onClose={() => alert('Alert closed')}
-      >
-        <p className="text-sm">You can now continue using the application.</p>
-      </AlertBox>
+        onClose={() => alert("Alert closed")}
+      ></AlertBox>
 
       {/* <UserProfileCard
         user={user}
@@ -66,18 +63,16 @@ function App() {
         </div>
       </UserProfileCard> */}
 
-      {/* <ProductDisplay
+      <ProductDisplay
         product={product}
         showDescription={true}
         showStockStatus={true}
         onAddToCart={(productId) => alert(`Added product ${productId} to cart`)}
       >
-        <div className="text-sm text-gray-500">
-          Free shipping available
-        </div>
-      </ProductDisplay> */}
+        <div className="text-sm text-gray-500">Free shipping available</div>
+      </ProductDisplay>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

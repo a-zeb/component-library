@@ -15,20 +15,13 @@ export default function AlertBox({
   onClose,
   children,
 }: AlertBoxProps) {
-  const alertStyle = setAlertStyles(type)
+  const alertStyle = setAlertStyles(type);
 
   return (
     <div style={alertStyle}>
-      <div style={{ flex: "right" }}>
-        <p>{message}</p>
-        {onClose && (
-          <button
-            onClick={onClose}
-            className="ml-4 text-gray-500 hover:text-gray-700"
-          >
-            X
-          </button>
-        )}
+      <div style={{ display: "flex" }}>
+        <p style={{ padding: "0.25em" }}>{message}</p>
+        {onClose && <button onClick={onClose}>X</button>}
       </div>
       {children}
     </div>
@@ -37,19 +30,40 @@ export default function AlertBox({
 
 function setAlertStyles(type: AlertType) {
   let alertStyle;
-  const alertStyleInit = { display: "flex", borderRadius: "0.5rem", padding: "1rem", margin: "1rem" };
+  const alertStyleInit = {
+    display: "flex",
+    borderRadius: "0.5em",
+    padding: "1em",
+    margin: "1em",
+  };
   switch (type) {
     case "success":
-      alertStyle = { ...alertStyleInit, border: "0.2rem solid green", backgroundColor: "#878784" }
+      alertStyle = {
+        ...alertStyleInit,
+        border: "0.2em solid green",
+        backgroundColor: "#878784",
+      };
       return alertStyle;
     case "error":
-      alertStyle = { ...alertStyleInit, border: "0.2rem solid red", backgroundColor: "#878784" }
+      alertStyle = {
+        ...alertStyleInit,
+        border: "0.2em solid red",
+        backgroundColor: "#878784",
+      };
       return alertStyle;
     case "warning":
-      alertStyle = { ...alertStyleInit, border: "0.2rem solid yellow", backgroundColor: "#878784" }
+      alertStyle = {
+        ...alertStyleInit,
+        border: "0.2em solid yellow",
+        backgroundColor: "#878784",
+      };
       return alertStyle;
     case "info":
-      alertStyle = { ...alertStyleInit, border: "0.2rem solid blue", backgroundColor: "#878784" }
+      alertStyle = {
+        ...alertStyleInit,
+        border: "0.2em solid blue",
+        backgroundColor: "#878784",
+      };
       return alertStyle;
   }
 }
