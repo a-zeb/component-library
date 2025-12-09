@@ -31,6 +31,29 @@ function App() {
         <p className="text-sm">You can now continue using the application.</p>
       </AlertBox>
 
+      <AlertBox
+        type="error"
+        message="Your profile failed to update."
+        onClose={() => alert('Alert closed')}
+      >
+        <p className="text-sm">You can now continue using the application.</p>
+      </AlertBox>
+
+      <AlertBox
+        type="warning"
+        message="You have two factor disabled."
+        onClose={() => alert('Alert closed')}
+      >
+        <p className="text-sm">You can now continue using the application.</p>
+      </AlertBox>
+
+      <AlertBox
+        type="info"
+        message="We can give you a lot of cool info."
+        onClose={() => alert('Alert closed')}
+      >
+        <p className="text-sm">You can now continue using the application.</p>
+      </AlertBox>
 
       {/* <UserProfileCard
         user={user}
