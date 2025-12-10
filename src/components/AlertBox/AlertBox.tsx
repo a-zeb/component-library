@@ -1,11 +1,5 @@
-export type AlertType = "success" | "error" | "warning" | "info";
-
-export interface AlertBoxProps {
-  type: AlertType;
-  message: string;
-  onClose?: () => void;
-  children?: React.ReactNode;
-}
+import type { AlertType } from "../../types";
+import type { AlertBoxProps } from "../../types";
 
 // Create an AlertBox component that can display different types of alerts
 // (success, error, warning, info) with customizable messages.
@@ -20,8 +14,17 @@ export default function AlertBox({
   return (
     <div style={alertStyle}>
       <div style={{ display: "flex" }}>
-        <p style={{ padding: "0.25em" }}>{message}</p>
-        {onClose && <button onClick={onClose}>X</button>}
+        <p style={{ padding: "0.25em", justifySelf: "flex-start" }}>
+          {message}
+        </p>
+        {onClose && (
+          <button
+            style={{ maxHeight: "2.5em", maxWidth: "3em" }}
+            onClick={onClose}
+          >
+            X
+          </button>
+        )}
       </div>
       {children}
     </div>
@@ -31,7 +34,6 @@ export default function AlertBox({
 function setAlertStyles(type: AlertType) {
   let alertStyle;
   const alertStyleInit = {
-    display: "flex",
     borderRadius: "0.5em",
     padding: "1em",
     margin: "1em",
@@ -41,21 +43,21 @@ function setAlertStyles(type: AlertType) {
       alertStyle = {
         ...alertStyleInit,
         border: "0.2em solid green",
-        backgroundColor: "#878784",
+        backgroundColor: "#97b79bff",
       };
       return alertStyle;
     case "error":
       alertStyle = {
         ...alertStyleInit,
         border: "0.2em solid red",
-        backgroundColor: "#878784",
+        backgroundColor: "#d68c8cff",
       };
       return alertStyle;
     case "warning":
       alertStyle = {
         ...alertStyleInit,
         border: "0.2em solid yellow",
-        backgroundColor: "#878784",
+        backgroundColor: "#fffa77ff",
       };
       return alertStyle;
     case "info":

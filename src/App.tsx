@@ -1,16 +1,36 @@
 import "./App.css";
 import AlertBox from "./components/AlertBox/AlertBox";
-// import UserProfileCard from './components/UserProfileCard/UserProfileCard';
+import UserProfileCard from "./components/UserProfileCard/UserProfileCard";
 import ProductDisplay from "./components/ProductDisplay/ProductDisplay";
+import { useState } from "react";
+import type { AlertType } from "./types";
 
 function App() {
-  // const user = {
-  //   id: '1',
-  //   name: 'John Doe',
-  //   email: 'john.doe@example.com',
-  //   role: 'Software Engineer',
-  //   avatarUrl: 'https://example.com/avatar.jpg'
-  // };
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState<AlertType>("success");
+  const [alertMessage, setAlertMessage] = useState("");
+  const [cartItems, setCartItems] = useState<string[]>([]);
+
+  const handleAddToCart = (productId: string) => {
+    setCartItems([...cartItems, productId]);
+    setShowAlert(true);
+    setAlertType("success");
+    setAlertMessage("Product added to cart!");
+  };
+
+  const handleUserEdit = (userId: string) => {
+    setShowAlert(true);
+    setAlertType("info");
+    setAlertMessage(`Editing user ${userId}`);
+  };
+
+  const user = {
+    id: "1",
+    name: "John Doe",
+    email: "john.doe@example.com",
+    role: "Software Engineer",
+    avatarUrl: "https://example.com/avatar.jpg",
+  };
 
   const product = {
     id: "1",
@@ -28,49 +48,49 @@ function App() {
     // Demonstrate prop passing between components.
     // Show how to handle component nesting.
     <>
-      <AlertBox
-        type="success"
-        message="Your profile has been updated successfully!"
-        onClose={() => alert("Alert closed")}
-      ></AlertBox>
+      {showAlert && (
+        <AlertBox
+          type={alertType}
+          message={alertMessage}
+          onClose={() => setShowAlert(false)}
+        />
+      )}
 
-      <AlertBox
-        type="error"
-        message="Your profile failed to update."
-        onClose={() => alert("Alert closed")}
-      ></AlertBox>
+      <div>
+        <UserProfileCard
+          user={user}
+          showEmail={true}
+          showRole={true}
+          onEdit={handleUserEdit}
+        >
+          <div className="text-sm text-gray-500">Last login: 2 hours ago</div>
+        </UserProfileCard>
 
-      <AlertBox
-        type="warning"
-        message="You have two factor disabled."
-        onClose={() => alert("Alert closed")}
-      ></AlertBox>
+        <ProductDisplay
+          product={product}
+          showDescription={true}
+          showStockStatus={true}
+          onAddToCart={handleAddToCart}
+        />
 
-      <AlertBox
-        type="info"
-        message="We can give you a lot of cool info."
-        onClose={() => alert("Alert closed")}
-      ></AlertBox>
+        {/* <AlertBox
+          type="error"
+          message="Your profile failed to update."
+          onClose={() => setShowAlert(false)}
+        ></AlertBox>
 
-      {/* <UserProfileCard
-        user={user}
-        showEmail={true}
-        showRole={true}
-        onEdit={(userId) => alert(`Editing user ${userId}`)}
-      >
-        <div className="text-sm text-gray-500">
-          Last login: 2 hours ago
-        </div>
-      </UserProfileCard> */}
+        <AlertBox
+          type="warning"
+          message="You have two factor disabled."
+          onClose={() => setShowAlert(false)}
+        ></AlertBox>
 
-      <ProductDisplay
-        product={product}
-        showDescription={true}
-        showStockStatus={true}
-        onAddToCart={(productId) => alert(`Added product ${productId} to cart`)}
-      >
-        <div className="text-sm text-gray-500">Free shipping available</div>
-      </ProductDisplay>
+        <AlertBox
+          type="info"
+          message="We are giving you some useful info here."
+          onClose={() => setShowAlert(false)}
+        ></AlertBox> */}
+      </div>
     </>
   );
 }

@@ -1,19 +1,4 @@
-export interface Product {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  imageUrl?: string;
-  inStock: boolean;
-}
-
-export interface ProductDisplayProps {
-  product: Product;
-  showDescription?: boolean;
-  showStockStatus?: boolean;
-  onAddToCart?: (productId: string) => void;
-  children?: React.ReactNode;
-}
+import type { ProductDisplayProps } from "../../types";
 
 // Create a ProductDisplay component that shows
 // product information with configurable display options.
@@ -25,7 +10,7 @@ export default function ProductDisplay({
   children,
 }: ProductDisplayProps) {
   return (
-    <div style={{border:"0.5em solid", content: "0.5em"}}>
+    <div style={{ border: "0.5em solid", content: "0.5em" }}>
       <p>{product.id}</p>
       <p>{product.name}</p>
       <p>{product.price}</p>
@@ -36,7 +21,9 @@ export default function ProductDisplay({
       <p>{showDescription}</p>
       <p>{showStockStatus}</p>
 
-      {onAddToCart && <button onClick={() => onAddToCart(product.id)}>+</button>}
+      {onAddToCart && (
+        <button onClick={() => onAddToCart(product.id)}>+</button>
+      )}
       {children}
     </div>
   );
