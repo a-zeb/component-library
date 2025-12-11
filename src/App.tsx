@@ -31,7 +31,7 @@ function App() {
     name: "John Doe",
     email: "john.doe@example.com",
     role: "Software Engineer",
-    avatarUrl: "./src/assets/react.svg",
+    avatarUrl: "./public/vite.svg",
   };
 
   const product = {
