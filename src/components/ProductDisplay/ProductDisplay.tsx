@@ -1,4 +1,5 @@
 import type { ProductDisplayProps } from "../../types";
+import { Button } from "react-bootstrap";
 
 // Create a ProductDisplay component that shows
 // product information with configurable display options.
@@ -10,7 +11,7 @@ export default function ProductDisplay({
   children,
 }: ProductDisplayProps) {
   return (
-    <div style={{ border: "0.25em solid", content: "0.5em" }}>
+    <div>
       <p>{product.id}</p>
       <p>{product.name}</p>
       <p>{product.price}</p>
@@ -22,7 +23,7 @@ export default function ProductDisplay({
       <p>{showStockStatus}</p>
 
       {onAddToCart && (
-        <button onClick={() => onAddToCart(product.id)}>+</button>
+        <Button onClick={() => onAddToCart(product.id)}>+</Button>
       )}
       {children}
     </div>

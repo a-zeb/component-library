@@ -1,4 +1,5 @@
 import type { UserProfileCardProps } from "../../types";
+import { Button } from "react-bootstrap";
 
 export default function UserProfileCard({
   user,
@@ -7,28 +8,14 @@ export default function UserProfileCard({
   onEdit,
   children,
 }: UserProfileCardProps) {
-  const styles = {
-    display: "flex",
-    justifyContent: "center",
-    alignItem: "center",
-    padding: "0.25em",
-    border: "0.2em solid green",
-    color: "black",
-    backgroundColor: "#b5c0b7ff",
-    borderRadius: "0.5em",
-    margin: "1em",
-  };
   return (
-    <div style={{ ...styles, flexDirection: "column" }}>
+    <div>
       {showEmail && <p>Email: {user.email}</p>}
       {showRole && <p>Role: {user.role}</p>}
       {onEdit && (
-        <button
-          style={{ maxHeight: "8em", maxWidth: "8em" }}
-          onClick={() => onEdit(user.id)}
-        >
+        <Button variant="primary" onClick={() => onEdit(user.id)}>
           Edit
-        </button>
+        </Button>
       )}
       {children}
     </div>
