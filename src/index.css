@@ -2,8 +2,11 @@
     background-color: rgb(226, 248, 255);
     margin: 0 auto;
     padding: 2rem;
-    text-align: center;
-    justify-content: center;
     min-width: 100vw;
     min-height: 100vh;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
 }

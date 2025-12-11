@@ -4,12 +4,8 @@ import UserProfileCard from "./components/UserProfileCard/UserProfileCard";
 import ProductDisplay from "./components/ProductDisplay/ProductDisplay";
 import { useState } from "react";
 import type { AlertType } from "./types";
-
-// importing bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container, Row, Col } from "react-bootstrap";
 
 function App() {
   const [showAlert, setShowAlert] = useState(false);
@@ -35,7 +31,7 @@ function App() {
     name: "John Doe",
     email: "john.doe@example.com",
     role: "Software Engineer",
-    avatarUrl: "https://example.com/avatar.jpg",
+    avatarUrl: "./src/assets/react.svg",
   };
 
   const product = {
@@ -43,19 +39,17 @@ function App() {
     name: "Wireless Headphones",
     price: 199.99,
     description: "High-quality wireless headphones with noise cancellation.",
-    imageUrl: "https://example.com/headphones.jpg",
+    imageUrl: "./src/assets/react.svg",
     inStock: true,
   };
 
   return (
     // Test different prop combinations.
-
-    // Create example usage of components working together.
-    // Demonstrate prop passing between components.
     // Show how to handle component nesting.
     <>
       <Container>
         <Row>
+          <Col />
           <Col>
             {showAlert && (
               <AlertBox
@@ -65,9 +59,10 @@ function App() {
               />
             )}
           </Col>
+          <Col />
         </Row>
 
-        <div>
+        <Row>
           <UserProfileCard
             user={user}
             showEmail={true}
@@ -83,7 +78,7 @@ function App() {
             showStockStatus={true}
             onAddToCart={handleAddToCart}
           />
-        </div>
+        </Row>
       </Container>
     </>
   );
