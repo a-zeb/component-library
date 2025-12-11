@@ -31,7 +31,7 @@ function App() {
     name: "John Doe",
     email: "john.doe@example.com",
     role: "Software Engineer",
-    avatarUrl: "./public/vite.svg",
+    avatarUrl: "./vite.svg",
   };
 
   const product = {
@@ -39,7 +39,7 @@ function App() {
     name: "Wireless Headphones",
     price: 199.99,
     description: "High-quality wireless headphones with noise cancellation.",
-    imageUrl: "./src/assets/react.svg",
+    imageUrl: "./react.svg",
     inStock: true,
   };
 
