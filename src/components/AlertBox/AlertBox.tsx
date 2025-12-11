@@ -43,7 +43,7 @@ function setAlertStyles(type: AlertType) {
       alertStyle = {
         ...alertStyleInit,
         border: "0.2em solid green",
-        backgroundColor: "#97b79bff",
+        backgroundColor: "#c0c9c1ff",
       };
       return alertStyle;
     case "error":
@@ -64,7 +64,7 @@ function setAlertStyles(type: AlertType) {
       alertStyle = {
         ...alertStyleInit,
         border: "0.2em solid blue",
-        backgroundColor: "#878784",
+        backgroundColor: "#dbdbdaff",
       };
       return alertStyle;
   }

@@ -10,7 +10,7 @@ export default function ProductDisplay({
   children,
 }: ProductDisplayProps) {
   return (
-    <div style={{ border: "0.5em solid", content: "0.5em" }}>
+    <div style={{ border: "0.25em solid", content: "0.5em" }}>
       <p>{product.id}</p>
       <p>{product.name}</p>
       <p>{product.price}</p>

@@ -72,24 +72,6 @@ function App() {
           showStockStatus={true}
           onAddToCart={handleAddToCart}
         />
-
-        {/* <AlertBox
-          type="error"
-          message="Your profile failed to update."
-          onClose={() => setShowAlert(false)}
-        ></AlertBox>
-
-        <AlertBox
-          type="warning"
-          message="You have two factor disabled."
-          onClose={() => setShowAlert(false)}
-        ></AlertBox>
-
-        <AlertBox
-          type="info"
-          message="We are giving you some useful info here."
-          onClose={() => setShowAlert(false)}
-        ></AlertBox> */}
       </div>
     </>
   );
