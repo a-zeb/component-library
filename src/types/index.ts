@@ -36,6 +36,6 @@ export interface UserProfileCardProps {
     user: User;
     showEmail?: boolean;
     showRole?: boolean;
-    onEdit?: (userId: string) => void;
+    onEdit?: (alertType: AlertType, message: string) => void;
     children?: React.ReactNode;
 }

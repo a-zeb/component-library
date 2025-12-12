@@ -20,10 +20,10 @@ function App() {
     setAlertMessage("Product added to cart!");
   };
 
-  const handleUserEdit = (userId: string) => {
+  const handleUserEdit = (alertType: AlertType, message: string) => {
     setShowAlert(true);
-    setAlertType("info");
-    setAlertMessage(`Editing user ${userId}`);
+    setAlertType(alertType);
+    setAlertMessage(message);
   };
 
   const user = {
@@ -43,14 +43,29 @@ function App() {
     inStock: true,
   };
 
+  const product2 = {
+    id: "2",
+    name: "Wireless Accessory",
+    price: 1.99,
+    description: "High-quality accessory.",
+    inStock: false,
+  };
+
   return (
     // Test different prop combinations.
     // Show how to handle component nesting.
     <>
       <Container>
         <Row>
-          <Col />
-          <Col>
+          <UserProfileCard
+            user={user}
+            showEmail={true}
+            showRole={true}
+            onEdit={handleUserEdit}
+          ></UserProfileCard>
+        </Row>
+        <Row>
+          <Col md={{ span: 6, offset: 3 }}>
             {showAlert && (
               <AlertBox
                 type={alertType}
@@ -59,25 +74,24 @@ function App() {
               />
             )}
           </Col>
-          <Col />
         </Row>
 
         <Row>
-          <UserProfileCard
-            user={user}
-            showEmail={true}
-            showRole={true}
-            onEdit={handleUserEdit}
-          >
-            <div className="text-sm text-gray-500">Last login: 2 hours ago</div>
-          </UserProfileCard>
-
           <ProductDisplay
             product={product}
             showDescription={true}
             showStockStatus={true}
             onAddToCart={handleAddToCart}
-          />
+          >
+            <Col md={{ span: 8, offset: 2 }}>
+              <ProductDisplay
+                product={product2}
+                showDescription={false}
+                showStockStatus={true}
+                onAddToCart={handleAddToCart}
+              ></ProductDisplay>
+            </Col>
+          </ProductDisplay>
         </Row>
       </Container>
     </>
