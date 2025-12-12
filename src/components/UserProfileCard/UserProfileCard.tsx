@@ -15,7 +15,7 @@ export default function UserProfileCard({
         {user.avatarUrl && (
           <Card.Img className="p-4" variant="top" src={user.avatarUrl} />
         )}
-        <Container className="">
+        <Container className="d-grid gap-3">
           <Row>
             <Col>
               <Card.Text>Name: {user.name}</Card.Text>
@@ -37,13 +37,17 @@ export default function UserProfileCard({
               )}
             </Col>
           </Row>
-          <Row>{showEmail && <Card.Text>Email: {user.email}</Card.Text>}</Row>
-          <Row>{showRole && <Card.Text>Role: {user.role}</Card.Text>}</Row>
+          <Row>
+            {showEmail && <Card.Text>Email: {user.email}</Card.Text>}
+          </Row>
+          <Row>
+            {showRole && <Card.Text>Role: {user.role}</Card.Text>}
+          </Row>
           <Row>
             <Col>
               <Card.Text>Last login: 2 hours ago</Card.Text>
             </Col>
-            <Col md={9}>
+            <Col md={8}>
               {onEdit && (
                 <Button
                   variant="primary"
@@ -60,7 +64,7 @@ export default function UserProfileCard({
               )}
             </Col>
           </Row>
-          <Row>
+          <Row className="m-3">
             <Col>
               {onEdit && (
                 <Button
